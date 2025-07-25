@@ -15,13 +15,15 @@ const NewsDetail = () => {
     const { data } = useSWR(id ? `/api/news` : null, fetcher);
     const newsItem = data?.news?.find((item: any) => item.id === parseInt(id as string));
     const { language } = useLanguage();
+    // console.log(newsItem.title);
+    
 
     if (!newsItem) return <p>Berita tidak ditemukan.</p>;
 
     return (
         <>
             <Head>
-                <title>{newsItem.title}</title>
+                <title>{language === "en" ? newsItem.title.en : newsItem.title.id}</title>
                 <meta name="description" content={newsItem.title} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
@@ -42,7 +44,7 @@ const NewsDetail = () => {
 
                 {/* Title & Author */}
                 <div className="max-w-screen-xl px-2 mx-auto mt-10">
-                    <h1 className="text-3xl xl:text-4xl ml-2 font-bold text-sky-950 mb-10">{newsItem.title}</h1>
+                    <h1 className="text-3xl xl:text-4xl ml-2 font-bold text-sky-950 mb-10">{language === "en" ? newsItem.title.en : newsItem.title.id}</h1>
                     <div className="flex justify-between items-center px-2">
                         <div className="flex items-center space-x-4">
                             <Image
@@ -63,7 +65,7 @@ const NewsDetail = () => {
                     <div className="mt-5 relative h-[300px] xl:h-[480px]">
                         <Image
                             src={newsItem.headerImage}
-                            alt={newsItem.title}
+                            alt={language === "en" ? newsItem.title.en : newsItem.title.id}
                             fill
                             className="object-cover object-center rounded-2xl px-2"
                         />
@@ -80,7 +82,7 @@ const NewsDetail = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.5, delay: index * 0.1 }}
                                     >
-                                        <p className="text-sky-950 px-4 mt-4 text-md text-justify">{item.text}</p>
+                                        <p className="text-sky-950 px-4 mt-4 text-md text-justify">{language === "en" ? item.text.en : item.text.en}</p>
                                     </motion.div>
                                 );
                             }

@@ -6,16 +6,19 @@ import { IoIosArrowForward } from "react-icons/io";
 import Head from "next/head";
 import { FaUserCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/components/context/LanguageContext";
 
 const PortfolioDetail = () => {
+    const { language } = useLanguage();
     const router = useRouter();
     const { id } = router.query;
+
     const fetcher = (url: string) => fetch(url).then((res) => res.json());
     const { data, error, isLoading } = useSWR(id ? `/api/project` : null, fetcher);
     const portfolioDetail = data?.projects?.find((item: any) => item.id === parseInt(id as string));
-    console.log(portfolioDetail);
 
     if (!portfolioDetail) return <p>Portfolio tidak ditemukan.</p>;
+
     return (
         <>
             <Head>
@@ -36,18 +39,21 @@ const PortfolioDetail = () => {
                     </div>
                 </div>
                 <div className="max-w-screen-xl px-2 mx-auto mt-10 ">
-                    <div className="mt-5 relative h-[300px] xl:h-[600px]">
+                    <div className="mt-5 relative h-[300px] xl:h-[500px]">
                         <Image
                             src={portfolioDetail.headerImage}
-                            alt={portfolioDetail.title}
+                            alt={language === "en" ? portfolioDetail.title.en : portfolioDetail.title.id}
                             fill
                             className="object-cover object-center rounded-2xl px-2"
                         />
                     </div>
                     <div>
-                        <h1 className="text-xl md:text-3xl font-bold mt-5 mb-2 text-center text-[#005b96]">{portfolioDetail.title}</h1>
+                        <h1 className="text-xl md:text-3xl font-bold mt-5 mb-2 text-center text-[#005b96]">
+                            {language === "en" ? portfolioDetail.title.en : portfolioDetail.title.id}
+                        </h1>
                         <hr className="border-2 w-[250px] xl:w-[350px] border-[#80b918] mx-auto" />
                     </div>
+
                     <div className="mt-10 space-y-6">
                         {portfolioDetail.content.map((item: any, index: number) => {
                             if (item.type === "paragraph") {
@@ -58,7 +64,9 @@ const PortfolioDetail = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.5, delay: index * 0.1 }}
                                     >
-                                        <p className="text-sky-950 px-4 mt-4 text-md text-justify">{item.text}</p>
+                                        <p className="text-sky-950 px-4 mt-4 text-md text-justify">
+                                            {item.text ? item.text[language] : ""}
+                                        </p>
                                     </motion.div>
                                 );
                             }
@@ -74,13 +82,15 @@ const PortfolioDetail = () => {
                                     >
                                         <Image
                                             src={item.src}
-                                            alt={item.caption || "Image"}
+                                            alt={item.caption ? item.caption[language] : "Image"}
                                             width={700}
                                             height={500}
                                             className="object-fit object-center rounded-xl my-2 px-2 xl:px-0"
                                         />
                                         {item.caption && (
-                                            <p className="px-[5%] xl:px-[20%] text-center text-sm text-gray-600 italic">{item.caption}</p>
+                                            <p className="px-[5%] xl:px-[20%] text-center text-sm text-gray-600 italic">
+                                                {item.caption[language]}
+                                            </p>
                                         )}
                                     </motion.div>
                                 );
@@ -88,7 +98,6 @@ const PortfolioDetail = () => {
 
                             return null;
                         })}
-
                     </div>
                 </div>
             </div>
