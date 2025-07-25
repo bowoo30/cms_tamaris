@@ -93,7 +93,7 @@ const NewsAndArtikel = () => {
                                     <div>
                                         <Image
                                             src={item.headerImage}
-                                            alt={item.title}
+                                            alt={language === "en" ? item.title.en : item.title.id}
                                             width={600}
                                             height={250}
                                             className="object-cover w-full h-[250px]"
@@ -109,8 +109,8 @@ const NewsAndArtikel = () => {
                                                 <time dateTime={item.date}>{item.date}</time>
                                             </p>
                                         </div>
-                                        <div className="font-bold text-xl mb-2">{item.title}</div>
-                                        {item.title.length <= 58 ? <br /> : ''}
+                                        <div className="font-bold text-xl mb-2">{language === "en" ? item.title.en : item.title.id}</div>
+                                        {item.title.en.length <= 58 ? <br /> : ''}
                                         {/* <p className="text-gray-700 text-base text-justify">{item.title.length}</p> */}
                                     </div>
                                     <div className="mt-1 flex items-center justify-between p-4 bg-gray-100">
