@@ -93,7 +93,7 @@ const NewsAndArtikel = () => {
                                     <div>
                                         <Image
                                             src={item.headerImage}
-                                            alt={language === "en" ? item.title.en : item.title.id}
+                                            alt='news'
                                             width={600}
                                             height={250}
                                             className="object-cover w-full h-[250px]"
