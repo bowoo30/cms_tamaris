@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { useLanguage } from "@/components/context/LanguageContext";
-import type {Projects} from "@/types/project";
+import type { Projects } from "@/types/project";
 import useSWR from "swr";
 import { limitText } from "@/utils/limitText";
 import Link from "next/link";
@@ -51,12 +51,14 @@ const Portofolio = () => {
                         <div className="absolute bottom-[110%] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                             <div className="w-[120px] xl:w-[220px] rounded overflow-hidden shadow-lg p-2 bg-white">
                                 <Image
-                                    className="w-full h-auto rounded"
+                                    className="w-full max-w-full h-auto rounded object-cover sm:h-48 md:h-64 xl:h-80"
                                     src={project.headerImage}
                                     alt="PLTS Tatajabar"
                                     width={150}
                                     height={150}
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                                 />
+
                                 <div className=" py-2">
                                     <div className="font-semibold text-sm text-wrap mb-1 text-gray-800">
                                         {language === "en" ? project.title.en : project.title.id}
