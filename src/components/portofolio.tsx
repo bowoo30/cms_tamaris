@@ -49,7 +49,7 @@ const Portofolio = () => {
 
                     {projects.map((project, index) => (
                         <div className="absolute bottom-[110%] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                            <div className="w-[220px] rounded overflow-hidden shadow-lg p-2 bg-white">
+                            <div className="w-[120px] xl:w-[220px] rounded overflow-hidden shadow-lg p-2 bg-white">
                                 <Image
                                     className="w-full h-auto rounded"
                                     src={project.headerImage}

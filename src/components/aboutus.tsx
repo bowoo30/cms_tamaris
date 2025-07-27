@@ -13,7 +13,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="pt-3"
+            className=""
         >
             {/* <div className="text-center px-2 md:px-4">
                 <h1 className="text-[#005b96] text-2xl xl:text-3xl font-semibold">
