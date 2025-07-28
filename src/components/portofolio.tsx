@@ -34,7 +34,7 @@ const Portofolio = () => {
                 exit={{ y: 100, opacity: 0 }}        // Saat keluar (unmount), geser ke bawah dan hilang
                 viewport={{ once: true, amount: 0.2 }} // Hanya animasi sekali, saat 20% elemen terlihat
                 transition={{ duration: 0.8, delay: 0.2 }} // Durasi animasi 0.8 detik dengan delay 0.2 
-                className="relative w-full aspect-[16/9] xl:aspect-auto xl:h-[500px] overflow-hidden">
+                className="relative w-full max-w-[1200px] aspect-[16/9] mx-auto">
                 <Image
                     src="/id-maps.svg"
                     alt="Portofolio Map"
@@ -44,7 +44,7 @@ const Portofolio = () => {
                 />
 
                 {/* Location marker */}
-                <div className="absolute top-[64%] xl:top-[72%] left-[28%] transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer" >
+                <div className="absolute transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer" style={{ left: "25%", top: "64%" }} >
                     <FaLocationDot className="text-2xl text-red-500 border border-gray-500 p-1 rounded-full hover:scale-110 transition-all duration-300" />
 
                     {projects.map((project, index) => (
