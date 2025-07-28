@@ -20,9 +20,9 @@ const HomeLayout = () => {
             <section className="relative max-w-screen-xl mx-auto mt-10">
                 <About />
             </section>
-            <section className="relative mt-15">
+            {/* <section className="relative mt-15">
                 <VisiMisi/>
-            </section>
+            </section> */}
             <section className="relative mt-10">
                 <Portofolio/>
             </section>

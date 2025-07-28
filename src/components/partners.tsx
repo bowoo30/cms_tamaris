@@ -12,7 +12,7 @@ const logos = [
     { src: "/pln-batam.png", alt: "PLN Batam", width: 100, height: 100 },
     { src: "/tatajabar.png", alt: "Tatajabar", width: 110, height: 110 },
     { src: "/kbi.png", alt: "KBI", width: 100, height: 100 },
-    { src: "/blessindo.jpg", alt: "Blessindo", width: 70, height: 70 },
+    // { src: "/blessindo.jpg", alt: "Blessindo", width: 70, height: 70 },
     { src: "/aruna.jpeg", alt: "Aruna", width: 60, height: 60 },
 ];
 
@@ -63,7 +63,7 @@ const Partners = () => {
                     breakpoints={{
                         320: { slidesPerView: 2 },
                         640: { slidesPerView: 3 },
-                        1024: { slidesPerView: 5 },
+                        1024: { slidesPerView: 4 },
                     }}
                 >
                     {logos.map((logo, index) => (
