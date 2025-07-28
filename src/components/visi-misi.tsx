@@ -12,7 +12,7 @@ import { useLanguage } from "@/components/context/LanguageContext";
 const VisiMisi = () => {
     const { language } = useLanguage();
     return (
-        <div className="relative w-full h-[500px] xl:h-[300px] overflow-hidden">
+        <div className="relative w-full h-[500px] xl:h-[300px] overflow-hidden" id="#visi">
             {/* Background image as absolute */}
             <div className="absolute inset-0 z-10">
                 <Image

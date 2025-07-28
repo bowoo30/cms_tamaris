@@ -14,7 +14,7 @@ const Portofolio = () => {
     const { data, error, isLoading } = useSWR('/api/project', fetcher);
     const projects: Projects[] = data?.projects || [];
     return (
-        <div className="w-full bg-white px-4 py-10">
+        <div className="w-full bg-white px-4 py-10" id="portfolio">
             {/* Header */}
             <div className="max-w-[900px] mx-auto text-center space-y-4 mb-6">
                 <h2 className="text-3xl font-semibold text-[#005b96]">Portfolio</h2>
@@ -44,7 +44,7 @@ const Portofolio = () => {
                 />
 
                 {/* Location marker */}
-                <div className="absolute top-[64%] xl:top-[72%] left-[28%] transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+                <div className="absolute top-[64%] xl:top-[72%] left-[28%] transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer" >
                     <FaLocationDot className="text-2xl text-red-500 border border-gray-500 p-1 rounded-full hover:scale-110 transition-all duration-300" />
 
                     {projects.map((project, index) => (

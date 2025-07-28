@@ -46,8 +46,8 @@ const NewsArticle = () => {
     const news: News[] = data?.news || [];
 
     return (
-        <div>
-            <div className="max-w-[900px] mx-auto text-center space-y-4 mb-10">
+        <div id="news">
+            <div className="max-w-[900px] mx-auto text-center space-y-4 mb-10" >
                 <h2 className="text-3xl font-semibold text-[#005b96]">{language === "en" ? "News & Articles" : "Berita & Artikel"}</h2>
                 <hr className="border-2 w-[80px] border-[#80b918] mx-auto" />
             </div>

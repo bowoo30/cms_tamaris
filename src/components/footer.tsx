@@ -11,10 +11,10 @@ import { MdEmail } from "react-icons/md";
 
 
 const menuItems = [
-    { en: "Home", id: "Beranda" },
-    { en: "Vision & Mission", id: "Visi Misi" },
-    { en: "Portfolio", id: "Portofolio" },
-    { en: "News & Article", id: "Berita & Artikel" },
+    { en: "Home", id: "Beranda", link: "#" },
+    { en: "Vision & Mission", id: "Visi Misi", link: "#vision" },
+    { en: "Portfolio", id: "Portofolio", link: "#portfolio" },
+    { en: "News & Article", id: "Berita & Artikel", link: "#news" },
     // { en: "Contact", id: "Kontak" },
 ];
 
@@ -77,7 +77,7 @@ const Footer = () => {
                                 <div className="space-y-2">
                                     {menuItems.map((item, i) => (
                                         <div key={i}>
-                                            <a href="#" className="text-sm text-gray-600 hover:text-green-700">
+                                            <a href={item.link} className="text-sm text-gray-600 hover:text-green-700">
                                                 {language === "en" ? item.en : item.id}
                                             </a>
                                         </div>
