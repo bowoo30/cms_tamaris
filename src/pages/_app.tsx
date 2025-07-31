@@ -1,8 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { LanguageProvider } from "@/components/context/LanguageContext";
-import Footer from "@/components/footer";
-import AppShell from "@/components/appShell";
+import AppShell from "@/components/layout/mainLayout";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
 import { Manrope } from "next/font/google";
@@ -25,12 +24,11 @@ export default function App({ Component, pageProps }: AppProps) {
     </Head>
     <main className={manrope.className}>
       <LanguageProvider>
-        <AppShell>
+        {/* <AppShell> */}
           <Suspense fallback={<Loading />}>
             <Component {...pageProps} />
           </Suspense>
-        </AppShell>
-        <Footer />
+        {/* </AppShell> */}
       </LanguageProvider>
     </main>
     </>
