@@ -1,4 +1,4 @@
-import { AdminLayout } from "./layout";
+import AdminLayout from "./layout";
 import LoginAuth from "./login";
 
 
