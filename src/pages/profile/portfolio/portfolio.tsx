@@ -100,12 +100,12 @@ const Portfolio = () => {
                                     height={400}
                                 />
                                 <div className="px-6 py-4">
-                                    <h3 className="font-semibold text-xl mb-1 text-center text-gray-800">
+                                    <h3 className="font-semibold text-sm md:text-xs text-pretty md:text-justify  text-gray-800">
                                         {language === "en" ? project.title.en : project.title.id}
                                     </h3>
                                     {/* <p className="text-gray-700 text-base text-center mb-4">(100 MWp)</p> */}
                                 </div>
-                                <div className="w-full bg-gray-100 text-md font-medium text-[#005b96] text-center p-4 underline cursor-pointer hover:bg-gray-200 transition">
+                                <div className="w-full bg-gray-100 text-md font-medium text-[#005b96] text-center p-4 underline cursor-pointer hover:bg-gray-200 transition px-1">
                                     <Link href={`/profile/portfolio/${project.id}`} className="">
                                         Learn More
                                     </Link>

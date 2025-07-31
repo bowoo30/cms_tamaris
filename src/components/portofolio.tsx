@@ -58,7 +58,7 @@ const Portofolio = () => {
                                     height={150}
                                 />
                                 <div className=" py-2">
-                                    <div className="font-semibold text-sm md:text-xs text-pretty mb-1 text-gray-800 px-1">
+                                    <div className="font-semibold text-sm md:text-xs text-pretty md:text-justify mb-1 text-gray-800 px-1">
                                         {language === "en" ? project.title.en : project.title.id}
                                     </div>
                                     {/* <p className="text-gray-500 text-xs font-light text-pretty">
