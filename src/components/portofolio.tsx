@@ -58,15 +58,15 @@ const Portofolio = () => {
                                     height={150}
                                 />
                                 <div className=" py-2">
-                                    <div className="font-semibold text-sm text-wrap mb-1 text-gray-800">
+                                    <div className="font-semibold text-sm md:text-xs text-pretty mb-1 text-gray-800 px-1">
                                         {language === "en" ? project.title.en : project.title.id}
                                     </div>
-                                    <p className="text-gray-500 text-xs font-light text-wrap">
+                                    {/* <p className="text-gray-500 text-xs font-light text-pretty">
                                         {language === "en" ? limitText(project.title.en, 100) : limitText(project.title.id, 100)}
-                                    </p>
-                                    <div className="mt-4">
+                                    </p> */}
+                                    <div className="mt-4 px-1">
                                         <Link href={`/profile/portfolio/${project.id}`} className="flex items-center justify-between">
-                                            <p className="text-[#005b96] text-sm font-light">View detail</p>
+                                            <p className="text-[#005b96] text-sm md:text-xs font-light">View detail</p>
                                             <IoMdArrowRoundForward className="text-[#005b96] text-lg" />
                                         </Link>
                                     </div>
