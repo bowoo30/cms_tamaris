@@ -8,6 +8,7 @@ interface User {
     name?: string;
     email?: string;
     role?: string;
+    token: string; // Token harus selalu ada
 }
 
 export const authOptions: NextAuthOptions = {
@@ -18,42 +19,40 @@ export const authOptions: NextAuthOptions = {
                 email: { label: "Email", type: "text", placeholder: "Email" },
                 password: { label: "Password", type: "password", placeholder: "Password" },
             },
-            async authorize(credentials): Promise<User | null> {
+            // [...nextauth].ts
+            async authorize(credentials, req): Promise<User | null> {
                 const { email, password } = credentials ?? {};
-
-                if (!email || !password) {
-                    console.log("Invalid credentials");
-                    return null;
-                }
+                if (!email || !password) return null;
 
                 try {
-                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/login`, {
                         method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
+                        headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ email, password }),
                     });
 
-                    if (!res.ok) {
-                        console.log("Failed to authenticate");
-                        return null;
-                    }
+                    console.log("Status code from backend:", res.status);
 
                     const data = await res.json();
+                    console.log("Data from backend:", data);
 
-                    if (!data || !data.user) {
-                        console.log("No user data found");
+                    const user = data.user || data.data?.user;
+                    const token = data.token || data.data?.token;
+
+                    if (!user || !token) {
+                        console.warn("Missing user or token in response");
                         return null;
                     }
 
-                    // Asumsi `data.user` memiliki struktur seperti { id, email, name }
-                    return data.user as User; // Pastikan backend mengembalikan User yang sesuai tipe
+                    // Pastikan token selalu string
+                    return { ...user, token: String(token) };
+
                 } catch (error) {
-                    console.error("Error during authorization:", error);
+                    console.error("Authorize error:", error);
                     return null;
                 }
-            },
+            }
+
         }),
     ],
 
@@ -63,7 +62,7 @@ export const authOptions: NextAuthOptions = {
     },
 
     pages: {
-        signIn: "/auth/signin",
+        signIn: "/admin",
     },
 
     callbacks: {

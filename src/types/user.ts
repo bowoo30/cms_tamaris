@@ -1,4 +1,5 @@
 export default interface User {
+    userCompanyID(arg0: string, userCompanyID: any): unknown;
     id: number;
     name: string;
     email: string;
@@ -6,4 +7,5 @@ export default interface User {
     role_id: number;
     creaed_at: Date;
     token: string;
+    role: string;
 }

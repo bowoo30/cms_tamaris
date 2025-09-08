@@ -1,50 +1,46 @@
-// components/LoginAuth.tsx
+// components/RegisterPage.tsx
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { signIn } from "next-auth/react";
-import Image from "next/image";
 
-// Tipe user untuk type safety
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    role_id: number;
-}
 
-const LoginAuth = () => {
+const RegisterPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
     const [error, setError] = useState("");
     const router = useRouter();
 
-    // LoginAuth.tsx
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password, name }),
+            });
 
-        const res = await signIn("credentials", {
-            redirect: false,
-            email,
-            password,
-        });
+            const data = await res.json();
+            if (data) {
+                toast.success("User registered successfully");
+                setTimeout(() => {
+                    router.push("/admin");
+                }, 1500); // delay 1.5 detik
+            } else {
+                setError(data.message);
+                toast.error(data.message);
+            }
 
-        console.log("SignIn response:", res); // Tambahkan ini
+        } catch (error) {
+            console.error("Error registering user:", error);
 
-        if (res?.error) {
-            toast.error("Email atau password salah");
-            return;
         }
 
-        if (res?.ok) {
-            toast.success("Login berhasil!");
-            router.push("/dashboard");
-        }
     };
-
-
 
     return (
         <div className="relative min-h-screen overflow-hidden">
@@ -59,13 +55,21 @@ const LoginAuth = () => {
                 preload="auto"
             />
 
-            {/* Login card */}
+            {/* Registration card */}
             <div className="absolute top-1/2 left-1/2 w-[300px] transform -translate-x-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 border border-white/20 z-10">
                 <div className="mb-6 text-center">
                     <p className="text-2xl font-bold text-[#ececec]">CMS Tamaris</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                    <input
+                        type="text"
+                        placeholder="Enter your name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="border px-3 py-2 text-xs rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 bg-white/30"
+                        required
+                    />
                     <input
                         type="email"
                         placeholder="Enter your email"
@@ -87,7 +91,7 @@ const LoginAuth = () => {
                         className="bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500
                         cursor-pointer"
                     >
-                        Login
+                        Register
                     </button>
                 </form>
 
@@ -96,12 +100,12 @@ const LoginAuth = () => {
                 )}
 
                 <p className="text-xs mt-5 text-center text-white">
-                    Have an account?{" "}
+                    Do you have an account?{" "}
                     <Link
-                        href="/register"
+                        href="/admin"
                         className="text-blue-300 hover:underline transition duration-200"
                     >
-                        Register here
+                        Login here
                     </Link>
                 </p>
             </div>
@@ -110,4 +114,4 @@ const LoginAuth = () => {
     );
 };
 
-export default LoginAuth;
+export default RegisterPage;
