@@ -27,7 +27,7 @@ const PageDetail = () => {
     const { data: languages } = useSWR(`/api/language`, fetcher);
     const { data: metadata } = useSWR(`/api/metadata/${id}`, fetcher);
 
-    // console.log('metadata', metadata);
+    console.log('metadata', metadata?.error);
 
 
     const handleAddMetadata = () => {
@@ -124,6 +124,10 @@ const PageDetail = () => {
         }
     };
 
+    const metadataError = metadata?.error || undefined;
+    console.log('metadataError', metadataError);
+    
+
 
     return (
         <DashboardLayout>
@@ -155,6 +159,7 @@ const PageDetail = () => {
                             <div className="flex items-center space-x-4">
                                 <button
                                     onClick={() => handleAddMetadata()}
+                                    disabled={!metadataError ? true : false}
                                     className={`text-sky-900 border border-gray-300 transition-colors duration-300 rounded-xl py-1 px-3 flex items-center space-x-2
                                         cursor-pointer hover:bg-sky-900 hover:text-white`}
                                 >
