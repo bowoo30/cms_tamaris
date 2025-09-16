@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { useLanguage } from "@/components/context/LanguageContext";
-import type {Projects} from "@/types/project";
+import type { Projects } from "@/types/project";
 import useSWR from "swr";
 import { limitText } from "@/utils/limitText";
 import Link from "next/link";
@@ -14,12 +14,12 @@ const Portofolio = () => {
     const { data, error, isLoading } = useSWR('/api/project', fetcher);
     const projects: Projects[] = data?.projects || [];
     return (
-        <div className="w-full bg-white px-4 py-10" id="portfolio">
+        <div className="w-full bg-white px-4 mt-10" id="portfolio">
             {/* Header */}
-            <div className="max-w-[900px] mx-auto text-center space-y-4 mb-6">
+            <div className="max-w-[900px] mx-auto text-center space-y-4 mb-2">
                 <h2 className="text-3xl font-semibold text-[#005b96]">Portfolio</h2>
                 <hr className="border-2 w-[80px] border-[#80b918] mx-auto" />
-                <p className="font-light text-gray-500">
+                <p className="font-light text-gray-800">
                     {language === "en" ?
                         'Currently, PT Aruna Hijau Power has a total capacity of 100 MW project development across Indonesia'
                         :
@@ -44,11 +44,11 @@ const Portofolio = () => {
                 />
 
                 {/* Location marker */}
-                <div className="absolute transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer" style={{ left: "25%", top: "64%" }} >
-                    <FaLocationDot className="text-2xl text-red-500 border border-gray-500 p-1 rounded-full hover:scale-110 transition-all duration-300" />
 
-                    {projects.map((project, index) => (
-                        <div className="absolute bottom-[110%] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                {projects.map((project, index) => (
+                    <div className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer" style={{ left: project.left, top: project.top }} >
+                        <FaLocationDot className="peer text-2xl text-red-500 border border-gray-500 p-1 rounded-full hover:scale-110 transition-all duration-300" />
+                        <div className="absolute bottom-[110%] left-1/2 -translate-x-1/2 opacity-0 peer-hover:opacity-100 transition-opacity duration-300 z-10">
                             <div className="w-[120px] xl:w-[220px] rounded overflow-hidden shadow-lg p-2 bg-white">
                                 <Image
                                     className="w-full h-auto rounded"
@@ -65,18 +65,16 @@ const Portofolio = () => {
                                         {language === "en" ? limitText(project.title.en, 100) : limitText(project.title.id, 100)}
                                     </p>
                                     <div className="mt-4">
-                                        <Link href={`/profile/portfolio/${project.id}`} className="flex items-center justify-between">
+                                        {/* <Link href={`/profile/portfolio/${project.id}`} className="flex items-center justify-between">
                                             <p className="text-[#005b96] text-sm font-light">View detail</p>
                                             <IoMdArrowRoundForward className="text-[#005b96] text-lg" />
-                                        </Link>
+                                        </Link> */}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    ))}
-                    {/* Tooltip card */}
-
-                </div>
+                    </div>
+                ))}
             </motion.div>
         </div>
     );

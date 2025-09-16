@@ -20,10 +20,13 @@ export interface Projects {
         id: string;
         en: string;
     };
+    status: string;
     slug: string;
     headerImage: string;
     date: string;
     location: string;
     author: string;
     content: NewsContentBlock[];
+    left?: string;
+    top?: string;
 }

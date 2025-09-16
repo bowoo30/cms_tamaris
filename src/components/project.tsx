@@ -4,7 +4,7 @@ import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/context/LanguageContext";
-import type {Projects} from "@/types/project";
+import type { Projects } from "@/types/project";
 import useSWR from "swr";
 
 // Framer Motion Variants with delay per card
@@ -46,9 +46,9 @@ const Project = () => {
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
                         viewport={{ once: true, amount: 0.3 }}
-                        className="max-w-xl mx-auto rounded-xl overflow-hidden shadow-md bg-white"
+                        className="max-w-xl mx-auto rounded-xl overflow-hidden shadow-md bg-white flex flex-col justify-between relative"
                     >
-                        
+
                         <Image
                             className="w-full rounded-md"
                             src={project.headerImage}
@@ -56,19 +56,24 @@ const Project = () => {
                             width={600}
                             height={400}
                         />
+                        <p className="absolute top-2 rounded-xl right-2 text-xs text-white bg-green-600/80 p-2 text-center">{project.status}</p>
                         <div className="px-6 py-4">
                             <h3 className="font-semibold text-xl mb-1 text-center text-gray-800">
                                 {language === "en" ? project.title.en : project.title.id}
                             </h3>
-                            {/* <p className="text-gray-700 text-base text-center mb-4">(100 MWp)</p> */}
-                            {/* <p className="text-gray-500 text-sm">
-                                {project.title}
-                            </p> */}
                         </div>
                         <div className="w-full bg-gray-100 text-md font-medium text-[#005b96] text-center p-4 underline cursor-pointer hover:bg-gray-200 transition">
-                            <Link href={`/profile/portfolio/${project.id}`} className="">
-                                Learn More
-                            </Link>
+                            {project.content.length > 0 ? (
+                                <Link href={`/profile/portfolio/${project.id}`} className="">
+                                    Learn More
+                                </Link>
+                            ) : (
+                                <button
+                                    disabled
+                                    className="cursor-not-allowed text-gray-400">
+                                    Learn More
+                                </button>
+                            )}
                         </div>
                     </motion.div>
                 ))}

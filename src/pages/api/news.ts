@@ -186,11 +186,11 @@ export default function handler(
                         en: '"This is equivalent to reducing CO2 emissions by 118.725 tons," said Adi.'
                     }
                 },
-                {
-                    type: "image",
-                    src: "/peresmian.png",
-                    caption: "Peresmian PLTS Ground-Mounted Terbesar di Indonesia, berlokasi di Purawakarta, Jawa Barat, Rabu (28/8/2024)"
-                },
+                // {
+                //     type: "image",
+                //     src: "/peresmian.png",
+                //     caption: "Peresmian PLTS Ground-Mounted Terbesar di Indonesia, berlokasi di Purawakarta, Jawa Barat, Rabu (28/8/2024)"
+                // },
             ]
         },
         {

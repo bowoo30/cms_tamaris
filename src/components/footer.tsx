@@ -106,9 +106,9 @@ const Footer = () => {
                                         {language === "en" ? "Head Office" : "Kantor Pusat"}
                                     </p>
                                     <p className="mt-2 text-sm text-gray-600 leading-7">
-                                        Setiabudi Atrium, 6th Floor, 609 Suite.<br />
+                                        Setiabudi Atrium, 6th Floor, 608B Suite.<br />
                                         Jl. Rasuna Said,<br />
-                                        Jakarta Pusat.
+                                        Jakarta Pusat
                                     </p>
                                 </div>
                             </div>

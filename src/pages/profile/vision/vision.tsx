@@ -57,7 +57,7 @@ const VisionMission = () => {
 
                 {/* Description */}
                 <div>
-                    <p className="text-gray-600 text-md text-center font-light py-8 px-4 md:px-20">
+                    <p className="text-gray-800 text-md text-center font-light py-8 px-4 md:px-20">
                         {language === "en"
                             ? "PT Aruna Hijau Power consistently upholds its vision and mission as a cornerstone in fostering long-term environmental sustainability."
                             : "PT Aruna Hijau Power secara konsisten menjunjung tinggi visi dan misinya sebagai landasan dalam mendorong keberlanjutan lingkungan jangka panjang."}
@@ -89,7 +89,7 @@ const VisionMission = () => {
                             </h2>
                             <hr className="border-2 w-[60px] border-[#80b918]" />
                             <div className="space-y-4 mt-5">
-                                <div className="text-gray-700 text-sm flex items-center gap-x-5">
+                                <div className="text-gray-800 text-sm flex items-center gap-x-5">
                                     <FaGlobeAsia className="text-teal-500 w-10 h-10 xl:w-8 xl:h-8" />
                                     <p className="text-justify">
                                         {language === "en"
@@ -120,13 +120,13 @@ const VisionMission = () => {
                             <div className="space-y-7 mt-5">
                                 <div className="flex gap-x-4 justify-start items-start">
                                     <MdHighlight className="text-teal-500 w-12 h-10 xl:w-10 xl:h-10" />
-                                    <p className="text-gray-700 text-sm text-justify">
+                                    <p className="text-gray-800 text-sm text-justify">
                                         {language === "en"
                                             ? "To develop and manage renewable energy plants with a focus on efficiency and positive social impact."
                                             : "Mengembangkan dan mengelola pembangkit energi terbarukan dengan fokus pada efisiensi dan dampak sosial yang positif."}
                                     </p>
                                 </div>
-                                <div className="text-gray-700 text-justify text-sm flex justify-start items-start gap-x-5">
+                                <div className="text-gray-800 text-justify text-sm flex justify-start items-start gap-x-5">
                                     <FaBoltLightning className="text-teal-500 w-8 h-8 xl:w-7 xl:h-7 ml-1" />
                                     <p>
                                         {language === "en"

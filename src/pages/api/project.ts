@@ -16,11 +16,14 @@ export default function handler(
         "id": "Tatajabar ground-mounted PLTS 100 MWp terbesar di Indonesia",
         "en": "Tatajabar ground-mounted 100 MWp solar power plant, the largest in Indonesia"
       },
+      "status": "Existing Project",
       "slug": "Pembangunan PLTS Groundmounted merupakan kerja sama PLN dengan PT Aruna",
       "headerImage": "/pc.png",
       "date": "2024-08-28",
       "location": "Purwakarta",
       "author": "Admin Aruna Hijau Power",
+      "left":"26%",
+      "top":"64%",
       content: [
                 {
                     type: "paragraph",
@@ -52,7 +55,43 @@ export default function handler(
                     }
                 },
             ]
-    }
+    },
+    {
+      "id": 2,
+      "title": {
+        "id": "PLTS Salira Cilegon",
+        "en": "Salira Cilegon Solar Power Plant"
+      },
+      "status": "Ongoing",
+      "slug": "Pembangunan PLTS Groundmounted",
+      "headerImage": "/pc.png",
+      "date": "2024-08-28",
+      "location": "Purwakarta",
+      "author": "Admin Aruna Hijau Power",
+      "left":"24%",
+      "top":"63%",
+      content: [
+                
+            ]
+    },
+    {
+      "id": 3,
+      "title": {
+        "id": "PLTS Pertiwi Lestari 36 MWp",
+        "en": "Pertiwi Lestari 36 MWp Solar Power Plant"
+      },
+      "status": "Ongoing",
+      "slug": "Pembangunan PLTS Groundmounted",
+      "headerImage": "/pc.png",
+      "date": "2024-08-28",
+      "location": "Purwakarta",
+      "author": "Admin Aruna Hijau Power",
+      "left":"24%",
+      "top":"65%",
+      content: [
+                
+            ]
+    },
 
   ];
   res.status(200).json({ projects });

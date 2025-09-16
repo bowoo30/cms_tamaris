@@ -41,7 +41,7 @@ const Portfolio = () => {
             </Head>
 
             <div className="my-22">
-                <div className="relative w-full h-[300px]">
+                <div className="relative w-full h-[300px] border">
                     <Image
                         src="/gambar4.jpg"
                         alt="Group Photo"
@@ -77,7 +77,7 @@ const Portfolio = () => {
                     transition={{ duration: 0.5, delay: 0.2 }}>
                     <Portofolio />
                 </motion.div>
-                <div className="w-full px-4 py-10 bg-white">
+                <div className="max-w-screen-xl mx-auto px-4 py-10 bg-white">
                     <div className={`grid ${projects.length > 1 ? "md:grid-cols-2 xl:grid-cols-3" : "grid-cols-1"} gap-6 mb-8 `}>
                         {projects.map((project, index) => (
                             <motion.div
@@ -89,7 +89,7 @@ const Portfolio = () => {
                                 whileHover={{ scale: 1.03 }}
                                 whileTap={{ scale: 0.98 }}
                                 viewport={{ once: true, amount: 0.3 }}
-                                className="max-w-xl mx-auto rounded-xl overflow-hidden shadow-md bg-white"
+                                className="max-w-xl mx-auto rounded-xl overflow-hidden shadow-md bg-white flex flex-col justify-between relative"
                             >
 
                                 <Image
@@ -99,16 +99,26 @@ const Portfolio = () => {
                                     width={600}
                                     height={400}
                                 />
+                                <p className="absolute top-2 rounded-xl right-2 text-xs text-white bg-green-600/80 p-2 text-center">{project.status}</p>
                                 <div className="px-6 py-4">
                                     <h3 className="font-semibold text-xl mb-1 text-center text-gray-800">
                                         {language === "en" ? project.title.en : project.title.id}
                                     </h3>
                                     {/* <p className="text-gray-700 text-base text-center mb-4">(100 MWp)</p> */}
                                 </div>
-                                <div className="w-full bg-gray-100 text-md font-medium text-[#005b96] text-center p-4 underline cursor-pointer hover:bg-gray-200 transition">
-                                    <Link href={`/profile/portfolio/${project.id}`} className="">
-                                        Learn More
-                                    </Link>
+                                <div className="w-full bg-gray-100 text-md font-medium text-[#005b96] text-center p-4 underline hover:bg-gray-200 transition">
+                                    {project.content.length > 0 ? (
+                                        <Link
+                                            href={`/profile/portfolio/${project.id}`} className="disabled:cursor-not-allowed cursor-pointer">
+                                            Learn More
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            disabled
+                                            className="cursor-not-allowed text-gray-400">
+                                            Learn More
+                                        </button>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}

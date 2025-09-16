@@ -3,13 +3,14 @@ import Image from "next/image";
 import { useLanguage } from "@/components/context/LanguageContext";
 import { motion, Variants } from "framer-motion";
 import Head from "next/head";
+import BenefitsSection from "@/components/BenefitSection";
 
 const fadeUp: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
         opacity: 1,
         y: 0,
-        transition: {  duration: 0.6, ease: "easeOut" },
+        transition: { duration: 0.6, ease: "easeOut" },
     }),
 };
 
@@ -62,90 +63,59 @@ const OurStory = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5}}
+                        transition={{ duration: 0.5 }}
                         viewport={{ once: true, amount: 0.2 }}
                         className="max-w-screen-xl mx-auto space-y-4 mt-10 px-5 xl:px-0">
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
+                        <p className="text-gray-800 text-justify text-md font-light leading-7">
                             {language === "en"
-                                ? `Founded in 2022, PT Aruna Hijau Power (AHP) is a company committed to the development of 
-                            renewable energy, particularly through the use of solar panel technology. AHP is a collaboration 
-                            between PT Aruna Cahaya Pratama (Aruna PV), which owns 80% of the shares, and PT PLN Batam, which owns 20%. 
-                            Through this synergy, AHP has successfully realized the construction of the largest ground-mounted solar power plant (PLTS) in 
-                            Indonesia with a capacity of 100 MWp, built in the industrial area of Kota Bukit Indah (KBI), Purwakarta, West Java. The project spans an area of 80.63 hectares and is divided into five separate sectors.`
+                                ? `Aruna Hijau Power (AHP) is a renewable energy end-to-end solution based in Indonesia, 
+                                established as a strategic joint venture between PT Aruna Cahaya Pratama (ACP) 
+                                and PT PLN (Persero)—Indonesia’s state-owned electricity company. 
+                                The formation of AHP represents a robust public-private partnership aimed at 
+                                accelerating clean energy development to support Indonesia’s net-zero emissions target by 2060.`
                                 :
-                                `Didirikan pada tahun 2022, PT Aruna Hijau Power (AHP) merupakan perusahaan yang
-                            berkomitmen pada pengembangan energi terbarukan, khususnya melalui pemanfaatan
-                            teknologi panel surya. AHP adalah hasil kolaborasi antara PT Aruna Cahaya Pratama
-                            (Aruna PV) dengan kepemilikan saham sebesar 80% dan PT PLN Batam sebesar 20%. Melalui
-                            sinergi ini, AHP berhasil merealisasikan pembangunan Pembangkit Listrik Tenaga Surya (PLTS)
-                            ground-mounted terbesar di Indonesia dengan kapasitas 100 MWp yang dibangun di kawasan industri
-                            Kota Bukit Indah (KBI), Purwakarta, Jawa Barat. Proyek ini berdiri di atas lahan seluas 80,63 hektar
-                            dan terbagi dalam lima sektor terpisah.`
+                                `Aruna Hijau Power (AHP) adalah solusi energi terbarukan end-to-end yang berbasis di Indonesia, 
+                                didirikan sebagai joint venture strategis antara PT Aruna Cahaya Pratama (ACP) 
+                                dan PT PLN (Persero)—perusahaan listrik milik negara Indonesia. 
+                                Pembentukan AHP merupakan kemitraan publik-swasta yang kokoh yang bertujuan untuk 
+                                mempercepat pengembangan energi bersih guna mendukung target nol emisi bersih Indonesia pada tahun 2060.`
                             }
                         </p>
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
+                        <p className="text-gray-800 text-justify text-md font-light leading-7">
                             {language === "en"
-                                ? `All electricity generated is distributed to support business and 
-                            industrial activities in the KBI area through PT Tatajabar Sejahtera (TJS), 
-                            the holder of the business area permit (Wilus) for the area, which is managed by PT Besland Pertiwi.`
+                                ? `With the combined strengths of ACP’s project development and commercial, 
+                                and PLN’s national electricity infrastructure, regulatory access, and technical capacity, 
+                                AHP is uniquely positioned to deliver bankable and scalable renewable energy solutions across Indonesia.`
                                 :
-                                `Seluruh energi listrik yang dihasilkan disalurkan untuk mendukung aktivitas
-                            bisnis dan industri dalam kawasan KBI melalui PT Tatajabar Sejahtera (TJS),
-                            pemegang izin wilayah usaha (Wilus) untuk kawasan tersebut, yang dikelola oleh
-                            PT Besland Pertiwi.`
+                                ` Dengan menggabungkan keunggulan ACP dalam pengembangan proyek dan aspek komersial, serta infrastruktur 
+                                listrik nasional PLN, akses regulasi, dan kapasitas teknis, AHP memiliki posisi yang unik untuk menyediakan 
+                                solusi energi terbarukan yang layak investasi dan dapat diskalakan di seluruh Indonesia.`
                             }
                         </p>
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
+                        <p className="text-gray-800 text-justify text-md font-light leading-7">
                             {language === "en"
-                                ? `In support of the solar power plant project's operations, a total of 159,978 solar panels have been 
-                            installed, supported by 24 transformers and 240 inverters. The technology used is state-of-the-art, 
-                            including the use of bifacial solar modules with a capacity of 630 Wp—the highest capacity for bifacial 
-                            modules ever implemented in Indonesia. The use of this technology enables increased efficiency and sunlight 
-                            capture from both sides of the panel.`
+                                ? `AHP operates with the mandate to develop independent power producer (IPP) projects focused on solar PV. 
+                                The company focuses on industrial clients, special economic zones, and data center operators seeking long-term 
+                                clean energy procurement with trusted developers.`
                                 :
-                                `Dalam mendukung operasional proyek PLTS ini, sebanyak 159.978 keping modul
-                            panel surya telah dipasang, didukung oleh 24 unit trafo dan 240 unit inverter.
-                            Teknologi yang digunakan merupakan teknologi terkini, termasuk penggunaan modul
-                            surya bifacial berkapasitas 630 Wp—kapasitas tertinggi untuk modul bifacial
-                            yang pertama kali diterapkan di Indonesia. Penggunaan teknologi ini memungkinkan
-                            peningkatan efisiensi dan daya tangkap sinar matahari dari dua sisi panel.`
+                                `AHP beroperasi dengan mandat untuk mengembangkan proyek pembangkit listrik independen (IPP) yang berfokus pada 
+                                tenaga surya fotovoltaik (PV). Perusahaan ini berfokus pada klien industri, zona ekonomi khusus, dan operator pusat 
+                                data yang mencari pasokan energi bersih jangka panjang dengan pengembang yang terpercaya.`
                             }
                         </p>
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
+                        <p className="text-gray-800 text-justify text-md font-light leading-7">
                             {language === "en"
-                                ? `The construction of this project also achieved remarkable milestones, 
-                            with construction completed ahead of schedule, taking only 6.7 months from the start of 
-                            the land clearing phase on February 1, 2024, to reaching commercial operation (COD) on August 22, 2024. 
-                            The construction phases included the installation of screw piles, mounting structures, PV modules, inverters, 
-                            transformers, and the interconnection cable system linking the five solar power plant sectors to the TJS transmission network.`
+                                ? `In addition to generating clean electricity from solar energy, AHP offers a unique strategic advantage compared to 
+                                other companies: we are officially registered as a user authorized to issue Renewable Energy Certificates (REC) 
+                                from i-REC Netherland. This capability provides significant added value to every Solar PV project delivered by AHP.`
                                 :
-                                `Pembangunan proyek ini juga mencatat pencapaian luar biasa, dengan penyelesaian
-                            konstruksi yang lebih cepat dari jadwal, hanya dalam waktu 6,7 bulan sejak dimulainya
-                            tahap land clearing pada 1 Februari 2024 hingga mencapai operasi komersial (COD) pada
-                            22 Agustus 2024. Tahapan pembangunan mencakup pemasangan screw pile, struktur mounting,
-                            PV modul, inverter, trafo, serta sistem kabel jaringan interkoneksi yang menghubungkan
-                            kelima sektor PLTS ke jaringan transmisi TJS.`
+                                `Selain menghasilkan listrik bersih dari energi surya, AHP memiliki keunggulan strategis unik dibandingkan perusahaan 
+                                lain: kami secara resmi terdaftar sebagai pengguna yang berwenang untuk menerbitkan Sertifikat Energi Terbarukan (REC) 
+                                dari i-REC Belanda. Kemampuan ini memberikan nilai tambah yang signifikan bagi setiap proyek Solar PV yang diselesaikan 
+                                oleh AHP.`
                             }
                         </p>
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
-                            {language === "en"
-                                ? `This project passed commissioning tests on August 2–14, 2024, and 
-                            underwent a seven-day reliability run. The groundbreaking ceremony for 
-                            the project took place on October 27, 2023, coinciding with National Electricity Day, 
-                            and was officially inaugurated on August 28, 2024, by the Director General of Electricity, 
-                            the CEO of PLN, PLN Batam, and Aruna management. This achievement marks a significant milestone 
-                            in Indonesia's clean energy transition and reaffirms AHP's position as a pioneer in the development of 
-                            large-scale solar power plants in the country.
-                            `
-                                :
-                                `Proyek ini telah lulus uji komisioning pada 2–14 Agustus 2024 dan menjalani
-                            uji keandalan (reliability run) selama tujuh hari. Groundbreaking proyek dilakukan
-                            pada 27 Oktober 2023, bertepatan dengan Hari Listrik Nasional, dan secara resmi diresmikan
-                            pada 28 Agustus 2024 oleh Dirjen Ketenagalistrikan, Direktur Utama PLN, PLN Batam, dan manajemen Aruna.
-                            Pencapaian ini menjadi tonggak penting dalam transisi energi bersih di Indonesia dan menegaskan posisi
-                            AHP sebagai pelopor dalam pengembangan PLTS skala besar di Tanah Air.`
-                            }
-                        </p>
+                        <BenefitsSection />
                     </motion.div>
                 </div>
             </div>

@@ -36,17 +36,17 @@ const About = () => {
                         {language === "en" ? "Sustainable Power, Bright Horizons" : "Daya Berkelanjutan, Masa Depan Cerah"}
                     </h1>
                     <div className="space-y-4">
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
+                        <p className="text-gray-800 text-justify text-md font-light leading-7">
                             {language === "en"
-                                ? "PT Aruna Hijau Power (AHP), which is committed to the development of renewable energy through solar panels, is a joint venture between PT Aruna Cahaya Pratama (Aruna PV) with 80% share ownership and PT PLN Batam with 20%."
-                                : "PT Aruna Hijau Power (AHP) yang berkomitmen dalam pengembangan energiterbarukan melalui panel surya, merupakan perusahaan kerjasama antar PT Aruna Cahaya Pratama (Aruna PV) dengan kepemilikan saham 80% dan PT PLN Batam sebesar 20%."}
+                                ? "PT Aruna Hijau Power (AHP), which is committed to the development of renewable energy through solar panels, is a joint venture between PT Aruna Cahaya Pratama (Aruna PV) and PT PLN Batam."
+                                : "PT Aruna Hijau Power (AHP) yang berkomitmen dalam pengembangan energiterbarukan melalui panel surya, merupakan perusahaan kerjasama antar PT Aruna Cahaya Pratama (Aruna PV) dan PT PLN Batam"}
                         </p>
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
+                        <p className="text-gray-800 text-justify text-md font-light leading-7">
                             {language === 'en' ? "Through AHP, a 100 MWp ground-mounted solar power plant (PLTS) project spread over an area of 80.63 hectares and divided into 5 (five) separate sectors, was built and developed in the Kota Bukit Indah (KBI) industrial area, Purwakarta, West Java."
                                 :
                                 "Melalui AHP, proyek Pembangkit Listrik Tenaga Surya (PLTS) ground-mounted berkapasitas 100 MWp yang terhampar di area seluas 80,63 hektar dan terbagi dalam 5 (lima) sektor terpisah, dibangun dan dikembangkan di kawasan industri Kota Bukit Indah (KBI), Purwakarta, Jawa Barat."}
                         </p>
-                        <p className="text-gray-500 text-justify text-md font-light leading-7">
+                        <p className="text-gray-800 text-justify text-md font-light leading-7">
                             {language === 'en' ?
                                 'All electricity generated is channeled to business and industrial activities in the KBI industrial area, through PT Tatajabar Sejahtera (TJS), as the license holder of the business area (Wilus) for the KBI area owned by PT Besland Pertiwi.'
                                 :
